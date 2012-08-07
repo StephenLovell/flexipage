@@ -35,7 +35,7 @@
       var $target = $(this);
       $target.data("opts", opts)
 
-      opts.wrapper = $target.closest('div')
+      opts.wrapper = $target.closest(opts.parent)
       opts.actual = opts.firstpage;
       opts.total_pages = Math.ceil(($(opts.element , $target).length)/opts.perpage);
       
@@ -163,6 +163,7 @@
 
   // plugin defaults
   $.fn.flexipage.defaults = {
+  	parent : "div",
     element : "li",
     pager : true,
     next_txt : "Next &raquo;",
